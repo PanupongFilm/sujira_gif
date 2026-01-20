@@ -31,7 +31,12 @@ export default function Home() {
 
       <main className="flex flex-col w-screen h-screen items-center justify-center -mt-10 ">
 
-        <img src={gifList[gif]} width={450} className="z-1" />
+        <img
+          key={gif}
+          src={`${gifList[gif]}?t=${new Date().getTime()}`}
+          width={450}
+          className="z-1"
+        />
 
         <div className="w-130 h-45 bg-white -mt-12 z-10 rounded-2xl flex items-center justify-center relative"
           onClick={() => {
