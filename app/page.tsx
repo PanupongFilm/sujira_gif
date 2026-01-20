@@ -3,13 +3,24 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [conversation, setConversation] = useState(1);
+  const [conversation, setConversation] = useState(0);
+  const [gif, setGif] = useState(0);
 
-  const messages = [
-    "สวัสดีครับ",
-    'ข้าชื่อ "แมวน้อยแสนใจดี"',
-    "ยินดีที่ได้รู้จักนะ 😺",
-  ];
+  const message = [
+    "สวัสดีคนน่ารักที่ผ่านทางมาขอรับ",
+    "เนื่องในโอกาสพิเศษ",
+    "กระผมจะประทานพรให้คนน่ารัก 1ข้อ",
+    "โปรดเลือกสิ่งที่คนน่ารักอยากได้จากตัวเลือกด้านล่างขอรับ",
+    "เชิญเลือกได้ขอรับ"
+  ]
+
+  const gifList = [
+    "/cat.gif",
+    "/cat.gif",
+    "/cat2.gif",
+    "/cat2.gif",
+    "/cat3.gif",
+  ]
 
   return (
     <div
@@ -17,33 +28,71 @@ export default function Home() {
       bg-[url('/bg.jpg')] bg-cover bg-center
       w-screen h-screen flex flex-col"
     >
-      <header className="flex flex-col items-center mt-50">
-        <img src="/cat.gif" width={500} />
 
-        <div
-          onClick={() => setConversation((prev) => prev + 1)}
-          className="
-            relative -mt-7 z-10 w-150 h-40
-            flex items-center justify-center
-            rounded-2xl bg-white border border-gray-200 shadow-xl
-            cursor-pointer select-none
-          "
-        >
-          <h1
-            key={conversation}   
-            className="
-              text-4xl text-pink-700
-              transition-opacity duration-500 ease-in-out
-            "
-          >
-            {messages[conversation - 1]}
-          </h1>
+      <main className="flex flex-col w-screen h-screen items-center justify-center -mt-10 ">
 
-          <p className="text-2xl text-gray-400 absolute bottom-2.5 right-4">
-            Tap
-          </p>
+        <img src={gifList[gif]} width={450} className="z-1" />
+
+        <div className="w-130 h-45 bg-white -mt-12 z-10 rounded-2xl flex items-center justify-center relative"
+          onClick={() => {
+            if (conversation < 4) {
+              setConversation(prev => prev + 1);
+              setGif((prev => prev + 1));
+            }
+          }}>
+
+          <h1 className="text-3xl text-pink-600 w-120 text-center">{message[conversation]}</h1>
+
+          <p className="absolute right-6 bottom-2 text-gray-400 text-2xl">แตะ...</p>
+
         </div>
-      </header>
+
+        {conversation === 4 && (
+
+          <div className="flex flex-col gap-5">
+
+
+            <div className="flex flex-row itmes-center justify-between gap-7 mt-10">
+
+              <div className="w-50 h-40 bg-white rounded-2xl">
+
+              </div>
+
+              <div className="w-50 h-40 bg-white rounded-2xl">
+
+              </div>
+
+              <div className="w-50 h-40 bg-white rounded-2xl">
+
+              </div>
+
+            </div>
+
+            <div className="flex flex-row itmes-center justify-between gap-7 mt-10">
+
+              <div className="w-50 h-40 bg-white rounded-2xl">
+
+              </div>
+
+              <div className="w-50 h-40 bg-white rounded-2xl">
+
+              </div>
+
+              <div className="w-50 h-40 bg-white rounded-2xl">
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        )}
+
+      </main>
+
+
+
     </div>
   );
 }
