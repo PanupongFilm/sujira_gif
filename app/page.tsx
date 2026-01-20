@@ -16,8 +16,6 @@ export default function Home() {
 
   const gifList = [
     "/cat.gif",
-    "/cat.gif",
-    "/cat2.gif",
     "/cat2.gif",
     "/cat3.gif",
   ]
@@ -33,7 +31,7 @@ export default function Home() {
 
         <img
           key={gif}
-          src={`${gifList[gif]}?t=${new Date().getTime()}`}
+          src={gifList[gif]}
           width={450}
           className="z-1"
         />
@@ -42,7 +40,15 @@ export default function Home() {
           onClick={() => {
             if (conversation < 4) {
               setConversation(prev => prev + 1);
-              setGif((prev => prev + 1));
+
+              if (conversation === 1) {
+                setGif((prev => prev + 1));
+              }
+
+              if (conversation === 3) {
+                setGif((prev => prev + 1));
+              }
+
             }
           }}>
 
