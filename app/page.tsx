@@ -186,7 +186,7 @@ export default function Home() {
                 setAnswerOption(prev => prev + 2);
                 setGiftAnswer("กระเป๋า zootopia");
               }}>
-              <img src={"/img1.png"} width={100} />
+              <img src={"/Img1.png"} width={100} />
             </div>
 
             <div className="w-40 h-30 bg-white rounded-2xl cursor-pointer flex items-center justify-center"
@@ -196,7 +196,7 @@ export default function Home() {
                 setAnswerOption(prev => prev + 2);
                 setGiftAnswer("รองเท้า Adidas");
               }}>
-              <img src={"/img2.jpg"} width={120} />
+              <img src={"/Img2.jpg"} width={120} />
             </div>
 
             <div className="w-40 h-30 bg-white rounded-2xl cursor-pointer flex items-center justify-center"
