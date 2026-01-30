@@ -204,7 +204,7 @@ export default function Home() {
                 setConversation(prev => prev + 1);
                 setGif(prev => prev + 1);
                 setAnswerOption(prev => prev + 2);
-                setGiftAnswer("ลาบูบู้");
+                setGiftAnswer("Backpack");
               }}>
               <img src={"/Img3.png"} width={120} />
             </div>
